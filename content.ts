@@ -8,20 +8,43 @@ export const config: PlasmoCSConfig = {
 };
 
 try {
-  const isNewImageTabChromium = () => {
-    // is body styled correctly
-    const isStyledCorrectly =
-      document.body.getAttribute("style") ===
-      "margin: 0px; height: 100%; background-color: rgb(14, 14, 14);";
-    // is body has only one child and it is image
-    const hasSingleImageChild =
-      document.body.children.length === 1 &&
-      document.body.children[0]?.tagName === "IMG";
-    // is image src matching
-    const isImageSrcMatching =
-      document.body.children[0]?.getAttribute("src") === window.location.href;
+  let hasForwarded = false;
 
-    return isStyledCorrectly && hasSingleImageChild && isImageSrcMatching;
+  const forwardImageToViewer = () => {
+    if (hasForwarded) {
+      return;
+    }
+
+    const img = document.body?.querySelector("img");
+    const src = img?.currentSrc || img?.getAttribute("src");
+    if (!src) {
+      return;
+    }
+
+    hasForwarded = true;
+    sendToBackground({
+      name: "openImageInNewTab" as never,
+      body: {
+        src,
+      },
+    });
+  };
+
+  const isNewImageTabChromium = () => {
+    if (!document.body) {
+      return false;
+    }
+
+    const images = document.body.querySelectorAll("img");
+    if (images.length !== 1) {
+      return false;
+    }
+
+    // Chromium image documents usually contain only the image node and no app UI.
+    const hasSingleElementChild = document.body.children.length === 1;
+    const bodyHasNoText = (document.body.textContent || "").trim().length === 0;
+
+    return hasSingleElementChild && bodyHasNoText;
   };
 
   const isNewImageTabFirefox = () => {
@@ -48,15 +71,40 @@ try {
     // );
   };
 
-  if (isNewImageTabChromium() || isNewImageTabFirefox()) {
-    console.log("This is a new image tab");
-    sendToBackground({
-      name: "openImageInNewTab" as never,
-      body: {
-        src: document.body.children[0]?.getAttribute("src"),
-      },
+  const tryInterceptImageTab = () => {
+    if (isNewImageTabChromium() || isNewImageTabFirefox()) {
+      forwardImageToViewer();
+    }
+  };
+
+  // Try immediately when script runs.
+  tryInterceptImageTab();
+
+  // Image documents can finalize structure slightly after document_end.
+  const observer = new MutationObserver(() => {
+    tryInterceptImageTab();
+    if (hasForwarded) {
+      observer.disconnect();
+    }
+  });
+
+  if (document.documentElement) {
+    observer.observe(document.documentElement, {
+      childList: true,
+      subtree: true,
     });
   }
+
+  window.addEventListener(
+    "load",
+    () => {
+      tryInterceptImageTab();
+      if (hasForwarded) {
+        observer.disconnect();
+      }
+    },
+    { once: true }
+  );
 } catch (error) {
   console.error("An error occurred:", error);
 }

@@ -65,6 +65,22 @@ function ImageViewer() {
   const [winboxCropperWidth, setWinboxCropperWidth] = useState(0);
   const [winboxCropperHeight, setWinboxCropperHeight] = useState(0);
 
+  useEffect(() => {
+    const syncImageUrlFromQuery = async () => {
+      const params = new URLSearchParams(window.location.search);
+      const rawUrl = params.get("url");
+      if (!rawUrl) return;
+
+      const decodedUrl = decodeURIComponent(rawUrl);
+      if (!decodedUrl) return;
+
+      const storage = new Storage({ area: "local" });
+      await storage.set("imageUrl", decodedUrl);
+    };
+
+    syncImageUrlFromQuery();
+  }, []);
+
   const initImageViewer = (
     imageUrl: string,
     imageRef: React.RefObject<HTMLImageElement>

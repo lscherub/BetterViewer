@@ -68,7 +68,10 @@
   "manifest": {
     "permissions": [
       "storage",
-      "contextMenus"
+      "contextMenus",
+      "tabs",
+      "webRequest",
+      "webNavigation"
     ],
     "host_permissions": [
       "https://*/*",
