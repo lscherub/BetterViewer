@@ -39,8 +39,6 @@ Fallback remains available:
 
 ## Screenshots
 
-> Replace or update screenshots here before store launch.
-
 ![Screenshot 1](./docs/screenshot1.png)
 ![Screenshot 2](./docs/screenshot2.png)
 ![Screenshot 3](./docs/screenshot3.png)
@@ -111,9 +109,18 @@ Common formats include:
 
 ## Attribution
 
-- Inspired by / based on: **BetterViewer** (original open-source project)
+- Inspired by / based on: **[BetterViewer](https://github.com/Ademking/BetterViewer)** (original open-source project)
 - License: **MIT**
 - Icon attribution: **Icons made by Graphics Plazza from Flaticon**
+
+## Credits
+
+OpenImage Viewer is a community-maintained fork inspired by the original BetterViewer project by Adem Kouki.
+
+Original project:
+https://github.com/Ademking/BetterViewer
+
+Includes additional Manifest V3 compatibility improvements and modern Chromium support.
 
 ## Contributors
 
