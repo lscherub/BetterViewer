@@ -116,8 +116,8 @@ export const config = {
     },
     {
       key: "viewer-about",
-      name: "About BetterViewer",
-      description: "About BetterViewer",
+      name: "About OpenImage Viewer",
+      description: "About OpenImage Viewer",
       isEnable: true,
     },
     {

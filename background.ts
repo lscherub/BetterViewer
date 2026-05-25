@@ -63,7 +63,7 @@ const ensureContextMenu = async () => {
   await chrome.contextMenus.removeAll();
   chrome.contextMenus.create({
     id: CONTEXT_MENU_ID,
-    title: "Open Image in BetterViewer",
+    title: "Open Image in OpenImage Viewer",
     contexts: ["image"],
   });
 };
@@ -74,7 +74,7 @@ chrome.runtime.onInstalled.addListener(async (details) => {
   // When the extension is installed, open the welcome page
   if (details.reason === chrome.runtime.OnInstalledReason.INSTALL) {
     chrome.tabs.create({
-      url: "https://betterviewer.surge.sh/welcome.html",
+      url: chrome.runtime.getURL("docs/welcome.html"),
     });
   }
 });

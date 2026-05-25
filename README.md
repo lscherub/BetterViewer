@@ -1,164 +1,124 @@
-<h1 align="center">
-    <img src="./docs/logo.svg" alt="Logo" width="200">
-    <br>
-    BetterViewer
-</h1>
+# OpenImage Viewer
 
-<div align="center">
-            <img src="https://img.shields.io/github/release/Ademking/BetterViewer?style=for-the-badge&sort=semver">
-            <img src="https://img.shields.io/github/stars/Ademking/BetterViewer?style=for-the-badge&sort=semver">
-            <img src="https://img.shields.io/chrome-web-store/rating/llcpfkbjgkpmapiidpnohffjmmnhpmpb?style=for-the-badge">
-</div>
+**Fast advanced image viewer for Chrome & Edge**
 
-<h3 align="center">
-    Fast, Simple, Easy image viewer.
-</h3>
+OpenImage Viewer is a community-maintained fork inspired by the original BetterViewer project. It preserves the existing UI/UX and toolset while adding a Manifest V3-compatible hybrid detection architecture that restores automatic image-tab opening in modern Chromium browsers.
 
-<p align="center">BetterViewer makes image viewing faster, easier, and more fun.</p>
+## Why this fork exists
 
-<p align="center">BetterViewer was designed as a replacement for the image viewing mode built into Firefox & Chrome-based web browsers.</p>
+When Chromium moved from MV2 to MV3, automatic behavior for **“Open image in new tab”** became unreliable in many image viewer extensions.
 
-<p align="center">With BetterViewer you can use various keyboard shortcuts to quickly pan, zoom images, edit and a lot more!</p>
+This fork solves that with a hybrid approach:
 
-<p align="center">    
-   <a href="https://chrome.google.com/webstore/detail/betterviewer/llcpfkbjgkpmapiidpnohffjmmnhpmpb"><img src="./docs/download-chrome.svg"></a>
-   <a href="https://microsoftedge.microsoft.com/addons/detail/betterviewer/jfladbainajdjpmdjpgndbgmkgibeddg"><img src="./docs/edge.svg"></a>
-   <a href="https://addons.mozilla.org/en-US/firefox/addon/betterviewer"><img src="./docs/firefox.svg"></a>
-</p>
+- URL-based image detection
+- File extension detection
+- MIME/content-type detection from response headers
+- Navigation event detection
+- Direct image-tab DOM detection
+- Automatic redirect to the viewer page
 
-<p align="center">
-    <a href="https://www.producthunt.com/posts/betterviewer?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-betterviewer" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=319881&theme=light" alt="BetterViewer - A chrome extension for better image viewing experience | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
-</p>
+Fallback remains available:
 
-<h3 align="center">
-   Screenshots
-</h3>
+- Right-click image → **Open Image in OpenImage Viewer**
 
-<h1 align="center">
-    <img src="./docs/screenshot1.png" alt="Preview 1">
-</h1>
+## Features
 
-<h1 align="center">
-    <img src="./docs/screenshot2.png" alt="Preview 2">
-</h1>
-
-<h1 align="center">
-  <img src="./docs/screenshot3.png" alt="Preview 3">
-</h1>
-
-<h1 align="center">
-  <img src="./docs/screenshot4.png" alt="Preview 3">
-</h1>
-
-### Features
-
-ℹ️ _(Some features are not available in V2 yet due to Manifest V3 limitations, but I will add them back soon)_
-
-- Zoom in / Zoom Out / Reset
+- Zoom in / zoom out / 1:1 / reset
 - Fullscreen
-- Rotate Left / Rotate Right
-- Flip Horizontal / Flip Vertical
-- Crop Image
-- Photo Editor (Adjust, Draw, Watermark, Filters, Finetune, Resize, Export As PNG, JPEG, JPG, WEBP)
-- Download Image
-- Upload Image to imgBB or imgur
+- Rotate / flip
+- Crop image
+- Photo editor
+- Annotate image
 - Color picker
-- Image Details
-- Change background color (Dark / Light / Blurred)
-- Print Image
-- Extract Text from Image
-- Edit in Photopea
-- Reverse Image Search
-- QR Code Scanner
-- Settings to customize Toolbar
+- Download image
+- Image details (EXIF/metadata)
+- QR scanner
+- Reverse image search
+- Photopea integration
+- Keyboard shortcuts and toolbar customization
 
-# Changelog
+## Screenshots
 
-## [2.0.2] - 2025-03-19
+> Replace or update screenshots here before store launch.
 
-- Add "Open image in new tab".
-- Bug fixes.
+![Screenshot 1](./docs/screenshot1.png)
+![Screenshot 2](./docs/screenshot2.png)
+![Screenshot 3](./docs/screenshot3.png)
+![Screenshot 4](./docs/screenshot4.png)
 
-## [2.0.1] - 2025-03-11
+## Installation
 
-- New Annotation Tool – Draw and mark up images easily!
-- Bug fixes and code cleanup.
+### Local development
 
+```bash
+pnpm install
+pnpm dev
+```
 
-- New version of BetterViewer is here!
-- Completely rewritten from scratch (React, TypeScript, [Plasmo](https://www.plasmo.com/))
-- Using Manifest V3 (I had to remove some features because of this change, but I will add them back soon)
-- Better UI/UX
+### Build packages
 
-## [2.0.0] - 2025-03-09
+```bash
+pnpm build:chrome
+pnpm build
+```
 
-- New version of BetterViewer is here!
-- Completely rewritten from scratch (React, TypeScript, [Plasmo](https://www.plasmo.com/))
-- Using Manifest V3 (I had to remove some features because of this change, but I will add them back soon)
-- Better UI/UX
+## MV3 compatibility notes
 
-## [1.0.5] - 2022-09-14
+This extension is built on Manifest V3 and uses a layered detection strategy to preserve auto-open behavior for direct image tabs in Chromium-based browsers.
 
-- Add "Zoom Ratio" option to Settings. (Thanks to @Metacor)
+It keeps permissions focused on what is required for:
 
-## [1.0.4] - 2022-04-19
+- tab/navigation tracking
+- content-type checks
+- context menu fallback
+- local state storage
 
-- Add New Photo Editor [Filerobot Image Editor](https://scaleflex.github.io/filerobot-image-editor/) (Adjust, Draw, Watermark, Filters, Finetune, Resize, Export As PNG, JPEG, JPG, WEBP)
-- Fix a bug where Chrome/Edge adds a duplicate image (Thanks to @patrykdziurkowski)
-- Remove Photo Editor [Painterro](https://github.com/devforth/painterro)
+## Keyboard shortcuts
 
-## [1.0.3] - 2022-02-10
+Default shortcuts include:
 
-- Fix major bugs (Croppig issues, Going back issues, etc...)
-- Add [Firefox](https://addons.mozilla.org/en-US/firefox/addon/betterviewer) Compatibilty
-- Fix Cropping issues
-- Zoom In / Zoom Out is now smoother
-- Fix some UI issues
-- Add new settings
-- Add "Default theme" setting
-- Add "Toolbar position" setting
-- Add "Notification toolbar" setting
-- Add "Show/Hide all tools at the start" setting
+- `+` / `-` / `0` for zoom controls
+- `Shift + Arrow` for rotation
+- `Ctrl + E` editor
+- `Ctrl + X` crop
+- `Shift + C` color picker
+- `Ctrl + D` download
+- `Ctrl + I` image details
 
-## [1.0.2] - 2021-11-28
+## Supported image formats
 
-- Fix minor bugs
-- Add "Reverse Image Search"
-- Add "QR Code Scanner"
-- Add Settings window
-- Fix Shortcuts (Combo keys / Ctrl + Key
+Common formats include:
 
-## [1.0.1] - 2021-11-20
+- JPG / JPEG / PNG / GIF / WEBP
+- SVG / BMP / ICO
+- AVIF
+- TIFF / TIF
+- APNG / JFIF / PJPEG / PJP
+- HEIC / HEIF (site/browser support dependent)
 
-- Fix Crop problem
-- Fix random shutdown
-- Replace Imgur with ImgBB (Many users requested this)
-- Add "Edit with Photopea"
-- Add Contributors in About popup
-- Edit in Photopea (Thanks to @bbbenji)
+## Known limitations
 
-## [1.0.0] - 2021-11-10
+- Some websites intentionally block direct image access via headers/CSP.
+- HEIC/HEIF behavior depends on browser decoding support.
+- Firefox MV3 behavior may differ from Chromium behavior.
 
-- First version
+## Roadmap
 
-## Contributors ✨
+- [ ] Refine Firefox-specific image-tab detection
+- [ ] Add automated end-to-end regression tests for redirect flow
+- [ ] Add refreshed store assets and icon set for OpenImage Viewer branding
+- [ ] Improve onboarding and in-app settings UX
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+## Attribution
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="https://github.com/bbbenji"><img src="https://avatars.githubusercontent.com/u/1678118?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Benji</b></sub></a><br /><a href="https://github.com/Ademking/BetterViewer/commits?author=bbbenji" title="Code">💻</a></td>     
-     <td align="center"><a href="https://github.com/patrykdziurkowski"><img src="https://avatars.githubusercontent.com/u/58700826?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Patryk Dziurkowski</b></sub></a><br /><a href="https://github.com/Ademking/BetterViewer/commits?author=patrykdziurkowski" title="Code">💻</a></td>
-     <td align="center"><a href="https://github.com/metacor"><img src="https://avatars.githubusercontent.com/u/35663695?v=4" width="100px;" alt=""/><br /><sub><b>Metacor</b></sub></a><br /><a href="https://github.com/Ademking/BetterViewer/commits?author=Metacor" title="Code">💻</a></td>
-  </tr>
-</table>
+- Inspired by / based on: **BetterViewer** (original open-source project)
+- License: **MIT**
+- Icon attribution: **Icons made by Graphics Plazza from Flaticon**
 
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
+## Contributors
 
-<!-- ALL-CONTRIBUTORS-LIST:END -->
+Community-maintained. Contributions are welcome via pull requests and issues.
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+## License
+
+MIT License. See [LICENSE](./LICENSE).

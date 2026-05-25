@@ -5,16 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to BetterViewer!</title>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S8D8ET426X"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-S8D8ET426X');
-    </script>
+    <title>Welcome to OpenImage Viewer!</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -28,9 +19,11 @@
                 <img class="lg:w-32 md:w-3/6 w-4/6 mb-8 object-cover object-center rounded z-50" alt="hero"
                     src="logo.svg">
                 <div class="w-full md:w-2/3 flex flex-col mb-16 items-center text-center">
-                    <h1 class="text-2xl mb-4 font-medium text-gray-100">Thank you for installing BetterViewer! 🎉</h1>
-                    <p class="leading-relaxed">BetterViewer makes image viewing faster, easier, and more fun.</p>
-                    <p class="leading-relaxed">BetterViewer was designed as a replacement for the image viewing mode
+                    <h1 class="text-2xl mb-4 font-medium text-gray-100">Thank you for installing OpenImage Viewer! 🎉</h1>
+                    <p class="leading-relaxed">Fast advanced image viewing for Chrome and Edge.</p>
+                    <p class="leading-relaxed">OpenImage Viewer is a community-maintained fork inspired by BetterViewer,
+                        with MV3-compatible automatic image-tab detection and redirect support.</p>
+                    <p class="leading-relaxed">It was designed as a replacement for the image viewing mode
                         built
                         into
                         web browsers.</p>
@@ -41,7 +34,7 @@
                         Right-click and select 
                         <img src="logo.svg" alt="context-menu" class="inline-block w-6 h-6">
 
-                        <strong>Open Image in BetterViewer</strong>
+                        <strong>Open Image in OpenImage Viewer</strong>
                     </p>
                     <div class="flex space-x-4 justify-center">
                         <img id="demo-img"
@@ -52,17 +45,11 @@
                             alt="hero" src="dog.jpg">
                     </div>
                 </div>
-                <div class="giscus"></div>
             </div>
         </section>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
-    <script src="https://giscus.app/client.js" data-repo="Ademking/BetterViewer" data-repo-id="R_kgDOGWgwPw"
-        data-category="General" data-category-id="DIC_kwDOGWgwP84CA5yI" data-mapping="pathname"
-        data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="dark" data-lang="en"
-        crossorigin="anonymous" async>
-        </script>
     <script>
         window.onload = function () {
             var count = 400;

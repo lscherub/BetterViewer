@@ -39,23 +39,23 @@ const Help = () => {
 
   const faqs = [
     {
-      question: "Which browsers support BetterViewer?",
+      question: "Which browsers support OpenImage Viewer?",
       answer:
-        "BetterViewer works on all major modern browsers, including Chrome, Firefox, Safari, and Edge.",
+        "OpenImage Viewer is optimized for Chromium browsers, including Chrome and Microsoft Edge.",
     },
     {
-      question: "Is BetterViewer available on mobile devices?",
+      question: "Is OpenImage Viewer available on mobile devices?",
       answer:
-        "Not yet. BetterViewer is currently designed for desktop browsers. However, some mobile browsers may support desktop extensions.",
+        "Not yet. OpenImage Viewer is currently designed for desktop browsers.",
     },
     {
-      question: "How can I contribute to BetterViewer?",
+      question: "How can I contribute to OpenImage Viewer?",
       answer: (
         <span>
-          You can support BetterViewer by reporting bugs, suggesting new
+          You can support OpenImage Viewer by reporting bugs, suggesting new
           features, or contributing code on GitHub.
           <a
-            href="https://github.com/Ademking/Betterviewer"
+            href="https://github.com/lscherub/BetterViewer"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-400 hover:underline ml-1"
@@ -68,12 +68,12 @@ const Help = () => {
     {
       question: "Why are some features from the old version missing?",
       answer:
-        "BetterViewer has been fully rebuilt to support Manifest V3, which resulted in some temporary feature removals. We’re working hard to restore them. If there's a feature you’d like back, let us know!",
+        "OpenImage Viewer includes MV3-compatible hybrid detection to restore automatic image-tab opening in modern Chromium browsers.",
     },
     {
-      question: "Is BetterViewer free to use?",
+      question: "Is OpenImage Viewer free to use?",
       answer:
-        "Yes, BetterViewer is completely free to use with no hidden costs or subscription fees and It's open-source.",
+        "Yes. OpenImage Viewer is free and open-source under the MIT license.",
     },
   ];
 
@@ -104,7 +104,7 @@ const Help = () => {
         <h1 className="text-3xl font-bold mt-6 mb-4 border-b border-gray-700 pb-2">
           Features
         </h1>
-        <p className="mb-4 text-lg">What can you do with BetterViewer?</p>
+        <p className="mb-4 text-lg">What can you do with OpenImage Viewer?</p>
 
         <ul className="space-y-2 pl-5 list-disc text-gray-300">
           {features.map((item, index) => (

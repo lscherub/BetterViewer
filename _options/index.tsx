@@ -89,13 +89,13 @@ const SettingsCard: React.FC = () => {
   return (
     <Card withBorder radius="md" p="xl" w={600}>
       <Center>
-        <Image src={logo} alt="BetterViewer Logo" w={100} />
+        <Image src={logo} alt="OpenImage Viewer Logo" w={100} />
       </Center>
       <Text size="lg" mt={10} ta="center">
-        BetterViewer Settings
+        OpenImage Viewer Settings
       </Text>
       <Text size="xs" color="dimmed" mt={1} mb="xl" ta="center">
-        Customize your BetterViewer experience
+        Customize your OpenImage Viewer experience
       </Text>
 
       <Title order={3} mt={10} mb="md">

@@ -273,7 +273,7 @@ export const tipppyOptions = [
   },
   {
     selector: ".viewer-about",
-    text: "About BetterViewer",
+    text: "About OpenImage Viewer",
   },
   {
     selector: ".viewer-qr",

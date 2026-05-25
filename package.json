@@ -1,9 +1,9 @@
 {
-  "name": "betterviewer",
-  "displayName": "BetterViewer",
+  "name": "openimage-viewer",
+  "displayName": "OpenImage Viewer",
   "version": "2.0.3",
-  "description": "A browser extension for better image viewing experience",
-  "author": "Adem Kouki <ademkingnew@gmail.com> (https://github.com/Ademking/BetterViewer)",
+  "description": "Fast advanced image viewer for Chrome & Edge with automatic image-tab detection",
+  "author": "OpenImage Viewer Maintainers (Community fork inspired by Ademking/BetterViewer)",
   "license": "MIT",
   "scripts": {
     "dev": "plasmo dev",
@@ -17,12 +17,17 @@
     "build:all": "pnpm run build:chrome && pnpm run build:firefox"
   },
   "keywords": [
-    "betterviewer",
-    "image",
-    "viewer",
-    "browser",
-    "extension",
-    "better"
+    "openimage viewer",
+    "image viewer",
+    "open image",
+    "image tab viewer",
+    "fullscreen image viewer",
+    "advanced image viewer",
+    "browser image viewer",
+    "image zoom",
+    "image tools",
+    "photo viewer",
+    "open image in new tab"
   ],
   "dependencies": {
     "@mantine/core": "7.4.2",
@@ -80,7 +85,7 @@
     ],
     "browser_specific_settings": {
       "gecko": {
-        "id": "ademking@betterviewer"
+        "id": "openimageviewer@community"
       }
     }
   }
