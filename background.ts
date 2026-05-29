@@ -2,6 +2,7 @@ import { Storage } from "@plasmohq/storage";
 
 const CONTEXT_MENU_ID = "captureRightClickedImg";
 const VIEWER_PAGE_PATH = "tabs/ImageViewer.html";
+const WELCOME_PAGE_PATH = "tabs/welcome.html";
 const VIEWER_PAGE_URL = chrome.runtime.getURL(VIEWER_PAGE_PATH);
 
 const IMAGE_EXTENSIONS = [
@@ -74,7 +75,7 @@ chrome.runtime.onInstalled.addListener(async (details) => {
   // When the extension is installed, open the welcome page
   if (details.reason === chrome.runtime.OnInstalledReason.INSTALL) {
     chrome.tabs.create({
-      url: chrome.runtime.getURL("docs/welcome.html"),
+      url: chrome.runtime.getURL(WELCOME_PAGE_PATH),
     });
   }
 });
